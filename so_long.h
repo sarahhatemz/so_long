@@ -37,6 +37,8 @@ typedef struct s_game
 int		open_map(char *mapname);
 void	check_newline(char *line);
 int		map_height(int fd);
+int		alloc_map(t_game *game);
+int		store_line(t_game *game, int fd, int i);
 int		storing_map(t_game *game, char *mapname);
 void	free_pmap(char **map, int fill);
 
@@ -52,6 +54,7 @@ int		validation(t_game *game);
 /* window / graphics */
 int		init_window(t_game *game);
 int		load_images(t_game *game);
+void	put_image(t_game *g, int x, int y);
 void	draw_map(t_game *g);
 
 /* game */
