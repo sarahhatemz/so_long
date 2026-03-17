@@ -2,7 +2,7 @@ CC      = cc
 CFLAGS  = -Wall -Werror -Wextra
 MFLAGS  = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
-SRCS    = main.c
+SRCS    = main.c check.c flood.c last.c map_op.c map_read.c
 OBJ     = $(SRCS:.c=.o)
 
 LIBFT_DIR = libft
