@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:24:39 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 18:20:22 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 20:12:11 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	check_newline(char *line)
 		i--;
 	}
 }
+
 int	map_height(int fd)
 {
 	char	*line;
@@ -59,6 +60,7 @@ int	map_height(int fd)
 		if (line[0] == '\0')
 		{
 			free(line);
+			get_next_line(-1);
 			ft_printf("Error\nInvalid map\n");
 			return (-1);
 		}

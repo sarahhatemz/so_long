@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:59:22 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 16:41:20 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 20:04:02 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ int	validation(t_game *game)
 
 	cpy = copy_map(game);
 	if (!cpy)
+	{
 		return (0);
+	}
 	flood_fill(cpy, game->px, game->py);
 	result = check_path(cpy, game);
 	free_pmap(cpy, game->height);

@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:26:19 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 17:40:50 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 20:11:57 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	put_image(t_game *g, int x, int y)
 		mlx_put_image_to_window(g->mlx, g->win, g->img.player, x * 64, y * 64);
 	else if (g->map[y][x] == 'C')
 		mlx_put_image_to_window(g->mlx, g->win, g->img.collectable, x * 64, y
-				* 64);
+			* 64);
 	else if (g->map[y][x] == 'E')
 	{
 		g->ex = x;

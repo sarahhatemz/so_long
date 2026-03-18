@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:20:03 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 17:15:37 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 20:12:32 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ int	main(int argc, char *argv[])
 	}
 	init_game(&game);
 	if (!storing_map(&game, argv[1]))
-	{
 		return (1);
-	}
 	checks(&game);
 	if (!init_window(&game))
 	{
