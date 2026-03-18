@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:24:39 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 18:06:20 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 18:20:22 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,18 @@ int	map_height(int fd)
 
 	count = 0;
 	line = get_next_line(fd);
-	if (!line)
-		return (0);
-	while ((line))
+	while (line)
 	{
+		check_newline(line);
+		if (line[0] == '\0')
+		{
+			free(line);
+			ft_printf("Error\nInvalid map\n");
+			return (-1);
+		}
 		count++;
 		free(line);
 		line = get_next_line(fd);
-		if ((line && line[0] == '\0') || !line)
-		{
-			
-			return (count);
-		}
 	}
 	if (count == 0)
 		return (-1);
