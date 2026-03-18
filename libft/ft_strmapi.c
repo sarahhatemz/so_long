@@ -22,16 +22,15 @@ char	my_toupper(unsigned int i, char c)
 	int		i;
 	int		len;
 	char	*str;
+	int		i;
+	int		len;
+	char	*str;
 
 	(void)i; // if unused
 	return (ft_toupper(c));
 }*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	int		len;
-	char	*str;
-
 	if (!s || !f)
 		return (NULL);
 	i = 0;

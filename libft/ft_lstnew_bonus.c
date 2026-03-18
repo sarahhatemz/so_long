@@ -24,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 	return (node);
 }
 /*int main(){
-char *text = "Hello";
-t_list *nodee = ft_lstnew(text);
+char	*text = "Hello";
+t_list	*nodee = ft_lstnew(text);
 printf("%s",(char *)nodee->content);	
 }*/

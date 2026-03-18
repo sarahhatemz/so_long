@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 15:52:27 by salzghou          #+#    #+#             */
+/*   Updated: 2026/03/18 15:58:52 by salzghou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long.h"
+
 int	check_rec(t_game *game)
 {
 	size_t	fline;
@@ -28,16 +40,14 @@ int	checkwalls(t_game *game)
 	i = 0;
 	while (i < game->width)
 	{
-		if (game->map[0][i] != '1'
-			|| game->map[game->height - 1][i] != '1')
+		if (game->map[0][i] != '1' || game->map[game->height - 1][i] != '1')
 			return (0);
 		i++;
 	}
 	j = 0;
 	while (j < game->height)
 	{
-		if (game->map[j][0] != '1'
-			|| game->map[j][game->width - 1] != '1')
+		if (game->map[j][0] != '1' || game->map[j][game->width - 1] != '1')
 			return (0);
 		j++;
 	}
@@ -50,7 +60,11 @@ static int	count_tile(t_game *game, int y, int x)
 
 	c = game->map[y][x];
 	if (c == 'P')
-		(game->p_count++, game->px = x, game->py = y);
+	{
+		game->p_count++;
+		game->px = x;
+		game->py = y;
+	}
 	else if (c == 'E')
 		game->e_count++;
 	else if (c == 'C')
@@ -78,10 +92,13 @@ int	check_chars(t_game *game)
 		y++;
 	}
 	if (game->p_count != 1 || game->e_count != 1 || game->c_count < 1)
-		return (ft_printf("Error\nMap must have exactly 1 P, 1 E, at least 1 C\n"), 0);
+	{
+		ft_printf("Error\n");
+		ft_printf("Map must have exactly 1 P, 1 E, at least 1 C\n");
+		return (0);
+	}
 	return (1);
 }
-
 
 char	**copy_map(t_game *game)
 {

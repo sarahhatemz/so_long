@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_op.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 16:24:00 by salzghou          #+#    #+#             */
+/*   Updated: 2026/03/18 16:24:21 by salzghou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
+
 int	store_line(t_game *game, int fd, int i)
 {
 	char	*line;
@@ -59,7 +72,6 @@ int	storing_map(t_game *game, char *mapname)
 		return (0);
 	return (1);
 }
-
 
 void	init_img(t_image *img)
 {

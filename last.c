@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   last.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 16:16:12 by salzghou          #+#    #+#             */
+/*   Updated: 2026/03/18 16:19:48 by salzghou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
+
 void	draw_map(t_game *g)
 {
 	int	y;
@@ -16,6 +29,7 @@ void	draw_map(t_game *g)
 		y++;
 	}
 }
+
 int	close_hook(t_game *g)
 {
 	if (g->img.wall)
@@ -45,7 +59,12 @@ static void	update_pos(t_game *g, int nx, int ny, char t)
 		g->c_count--;
 		g->map[ny][nx] = '0';
 	}
-	g->map[g->py][g->px] = g->on_exit ? 'E' : '0';
+	if (g->map[g->py][g->px] == g->on_exit)
+	{
+		g->map[g->py][g->px] = 'E';
+	}
+	else
+		g->map[g->py][g->px] = '0';
 	g->on_exit = (t == 'E');
 	g->px = nx;
 	g->py = ny;

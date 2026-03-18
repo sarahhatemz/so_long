@@ -1,15 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_read.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 16:24:39 by salzghou          #+#    #+#             */
+/*   Updated: 2026/03/18 16:26:00 by salzghou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
+
 int	open_map(char *mapname)
 {
 	int	fd;
 	int	len;
 
 	len = ft_strlen(mapname);
-	if (len < 5
-		|| mapname[len - 4] != '.'
-		|| mapname[len - 3] != 'b'
-		|| mapname[len - 2] != 'e'
-		|| mapname[len - 1] != 'r')
+	if (len < 5 || mapname[len - 4] != '.' || mapname[len - 3] != 'b'
+		|| mapname[len - 2] != 'e' || mapname[len - 1] != 'r')
 	{
 		ft_printf("Error\nInvalid map extension\n");
 		return (-1);
@@ -43,8 +53,12 @@ int	map_height(int fd)
 	int		count;
 
 	count = 0;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	if (!line)
+		return (0);
+	while ((line))
 	{
+		line = get_next_line(fd);
 		check_newline(line);
 		if (line[0] == '\0')
 		{

@@ -104,7 +104,7 @@ char	**ft_split(const char *s, char c)
 	return (res);
 }
 /*
-int main(void)
+int	main(void)
 {
 	char **words = ft_split("to live for the hope of it all",
 			' '); for (int i = 0; words[i]; i++)
