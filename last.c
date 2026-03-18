@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:16:12 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 16:19:48 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 18:15:37 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,16 @@ static void	update_pos(t_game *g, int nx, int ny, char t)
 		g->c_count--;
 		g->map[ny][nx] = '0';
 	}
-	if (g->map[g->py][g->px] == g->on_exit)
-	{
-		g->map[g->py][g->px] = 'E';
-	}
-	else
+	if (g->ey != g->py || g->ex != g->px)
 		g->map[g->py][g->px] = '0';
-	g->on_exit = (t == 'E');
 	g->px = nx;
 	g->py = ny;
 	g->map[g->py][g->px] = 'P';
 	g->moves++;
 	ft_printf("Moves: %d\n", g->moves);
 	draw_map(g);
+	if (g->ey == ny && g->ex == nx)
+		g->map[g->ey][g->ex] = 'E';
 }
 
 static void	try_move(t_game *g, int dx, int dy)

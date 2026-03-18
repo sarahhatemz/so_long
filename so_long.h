@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:27:11 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 16:39:36 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 17:54:48 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -39,6 +40,8 @@ typedef struct s_game
 	int		p_count;
 	int		px;
 	int		py;
+	int		ex;
+	int		ey;
 	int		moves;
 	int		on_exit;
 	t_image	img;
@@ -65,6 +68,7 @@ int			validation(t_game *game);
 /* window / graphics */
 int			init_window(t_game *game);
 int			load_images(t_game *game);
+void		*load_xpm(void *mlx, char *path);
 void		put_image(t_game *g, int x, int y);
 void		draw_map(t_game *g);
 

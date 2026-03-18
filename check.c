@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:52:27 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 15:58:52 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 18:11:39 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ static int	count_tile(t_game *game, int y, int x)
 	else if (c == 'C')
 		game->c_count++;
 	else if (c != '0' && c != '1')
-		return (0);
+{
+    ft_printf("Error\nInvalid character '%c' in map\n", c);
+    return (0);
+}
 	return (1);
 }
 

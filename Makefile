@@ -2,7 +2,7 @@ CC      = cc
 CFLAGS  = -Wall -Werror -Wextra
 MFLAGS  = -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
-SRCS    = main.c check.c flood.c last.c map_op.c map_read.c
+SRCS    = main.c check.c flood.c last.c map_op.c map_read.c new.c
 OBJ     = $(SRCS:.c=.o)
 
 LIBFT_DIR = libft
@@ -12,7 +12,12 @@ MLX_A     = minilibx-linux/libmlx.a
 
 NAME = so_long
 
-all: $(NAME)
+all: $(MLX_A) $(NAME)
+
+$(MLX_A):
+		echo "Cloning MiniLibX..."; \
+		git clone https://github.com/42Paris/minilibx-linux.git $(MLX_DIR); \
+	$(MAKE) -C $(MLX_DIR)
 
 $(NAME): $(OBJ) $(LIBFT_A) $(MLX_A)
 	$(CC) $(CFLAGS) $(OBJ) $(MFLAGS) -o $@ -L$(LIBFT_DIR) -lft
@@ -20,12 +25,7 @@ $(NAME): $(OBJ) $(LIBFT_A) $(MLX_A)
 $(LIBFT_A):
 	make -C $(LIBFT_DIR)
 
-$(MLX_A):
-	@if [ ! -d "$(MLX_DIR)" ] || [ ! -f "$(MLX_DIR)/mlx.h" ]; then \
-		echo "Cloning MiniLibX..."; \
-		git clone https://github.com/42Paris/minilibx-linux.git $(MLX_DIR); \
-	fi
-	make -C $(MLX_DIR)
+
 
 clean:
 	$(MAKE) clean -C $(LIBFT_DIR)

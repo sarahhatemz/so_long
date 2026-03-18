@@ -6,7 +6,7 @@
 /*   By: salzghou <salzghou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 16:24:00 by salzghou          #+#    #+#             */
-/*   Updated: 2026/03/18 16:24:21 by salzghou         ###   ########.fr       */
+/*   Updated: 2026/03/18 17:29:08 by salzghou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	init_game(t_game *game)
 	game->height = 0;
 	game->e_count = 0;
 	game->c_count = 0;
+	game->ex = 0;
+	game->ey = 0;
 	game->p_count = 0;
 	game->px = 0;
 	game->py = 0;
